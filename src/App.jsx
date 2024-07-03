@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import Header from "./components/Header";
 import MainSection from "./components/MainSection";
 import ExpenceComponent from "./components/ExpenceComponent";
 import ChartComponent from "./components/ChartComponent";
+import CoustomModal from "./components/CoustomModal";
 
 const Container = styled.div`
   width: 100%;
@@ -21,6 +22,16 @@ const Container = styled.div`
 `;
 
 const App = () => {
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   const dummydata = [
     { id: 1, title: "Entertainment", color: "#000", amount: 500 },
     { id: 2, title: "fuel", color: "#009", amount: 400 },
@@ -31,9 +42,16 @@ const App = () => {
   return (
     <Container>
       <Header />
-      <MainSection />
+      <MainSection openModal={openModal} />
       <ExpenceComponent />
       <ChartComponent dummydata={dummydata} />
+      <CoustomModal
+        modalIsOpen={modalIsOpen}
+        openModal={openModal}
+        closeModal={closeModal}
+      >
+        Ahmer
+      </CoustomModal>
     </Container>
   );
 };
