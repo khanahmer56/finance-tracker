@@ -33,13 +33,13 @@ const Button = styled.button`
   }
 `;
 
-const MainSection = ({ openModal }) => {
+const MainSection = ({ openModal, totalBalance }) => {
   return (
     <SectionContainer>
       <BalanceText>My Balance</BalanceText>
-      <BalanceAmount>{currencyFormatter(335644)}</BalanceAmount>
+      <BalanceAmount>{currencyFormatter(totalBalance)}</BalanceAmount>
       <ButtonContainer>
-        <Button bgColor="lightblue" onClick={() => openModal("Expense")}>
+        <Button bgColor="lightblue" onClick={() => openModal("expense")}>
           Expense
         </Button>
         <Button bgColor="lightgreen" onClick={() => openModal("income")}>

@@ -6,8 +6,9 @@ const customStyles = {
   content: {
     top: "50%",
     left: "50%",
-    height: "50vh",
+    height: "70vh",
     width: "80%",
+    maxWidth: "400px",
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
@@ -29,10 +30,11 @@ function CustomModal({ modalIsOpen, afterOpenModal, closeModal, children }) {
       style={customStyles}
       contentLabel="Example Modal"
     >
-      <div
-        style={{ display: "flex", flexDirection: "column", alignItems: "end" }}
-      >
-        <IoMdCloseCircle size={30} onClick={closeModal} color="white" />
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", justifyContent: "end" }}>
+          {" "}
+          <IoMdCloseCircle size={30} onClick={closeModal} color="white" />
+        </div>
 
         {children}
       </div>
